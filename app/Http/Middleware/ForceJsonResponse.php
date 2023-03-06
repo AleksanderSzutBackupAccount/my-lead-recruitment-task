@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Contracts\Routing\ResponseFactory;
 
 class ForceJsonResponse
 {
@@ -25,7 +25,7 @@ class ForceJsonResponse
         $response = $next($request);
         $response->headers->set('Content-Type', 'application/json');
 
-        if (!$response instanceof JsonResponse) {
+        if (! $response instanceof JsonResponse) {
             $response = $this->factory->json(
                 $response->content(),
                 $response->status(),
