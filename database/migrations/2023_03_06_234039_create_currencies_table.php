@@ -16,7 +16,7 @@ return new class () extends Migration {
             $table->uuid("id");
 
             $table->string("name");
-            $table->char("currency_code", 3)->unique();
+            $table->char("code", 3)->unique();
             $table->unsignedDecimal("exchange_rate", 12, 8);
 
             $table->timestamps();
