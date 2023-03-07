@@ -13,7 +13,12 @@ return new class () extends Migration {
     public function up(): void
     {
         Schema::create('currencies', function (Blueprint $table) {
-            $table->id();
+            $table->uuid("id");
+
+            $table->string("name");
+            $table->char("currency_code", 3)->unique();
+            $table->unsignedDecimal("exchange_rate", 12, 8);
+
             $table->timestamps();
         });
     }
