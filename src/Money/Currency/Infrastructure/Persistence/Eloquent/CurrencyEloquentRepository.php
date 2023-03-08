@@ -20,13 +20,13 @@ final readonly class CurrencyEloquentRepository implements CurrencyRepositoryInt
      */
     public function findOrFail(CurrencyId $id): Currency
     {
-        $eloquentBoard = $this->model->find($id->value());
+        $eloquentCurrency = $this->model->find($id->value());
 
-        if (null === $eloquentBoard) {
+        if (null === $eloquentCurrency) {
             throw new CurrencyNotFound();
         }
 
-        return $this->toDomain($eloquentBoard);
+        return $this->toDomain($eloquentCurrency);
     }
 
     /**
