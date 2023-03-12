@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Src\Money\Currency\Domain\Entity;
+namespace Src\Money\Currency\Domain\Aggregate;
 
 use Src\Common\Domain\Aggregate\AggregateRoot;
 use Src\Money\Currency\Domain\ValueObject\CurrencyCode;

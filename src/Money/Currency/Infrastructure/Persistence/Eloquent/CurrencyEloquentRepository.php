@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Src\Money\Currency\Infrastructure\Persistence\Eloquent;
 
-use Src\Money\Currency\Domain\Entity\Currency;
+use Src\Money\Currency\Domain\Aggregate\Currency;
 use Src\Money\Currency\Domain\Exceptions\CurrencyNotFound;
 use Src\Money\Currency\Domain\Persistence\CurrencyRepository as CurrencyRepositoryInterface;
 use Src\Money\Currency\Domain\ValueObject\CurrencyId;
