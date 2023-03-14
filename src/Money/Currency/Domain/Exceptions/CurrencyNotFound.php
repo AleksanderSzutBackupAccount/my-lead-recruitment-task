@@ -10,8 +10,8 @@ use Throwable;
 class CurrencyNotFound extends DomainException
 {
     public function __construct(
-        $message = '',
-        $code = 0,
+        string $message = '',
+        int $code = 0,
         Throwable $previous = null
     ) {
         $message = '' === $message ? 'Currency not found' : $message;
