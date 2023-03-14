@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Shared\Infrastructure\Bus;
+namespace Src\Common\Infrastructure\Bus;
 
-use App\Shared\Infrastructure\InfrastructureException;
-use Throwable;
+
+use Src\Common\Infrastructure\InfrastructureException;
 
 final class QueryNotRegistered extends InfrastructureException
 {

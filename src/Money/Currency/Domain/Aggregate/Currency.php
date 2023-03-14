@@ -13,10 +13,10 @@ use Src\Money\Currency\Domain\ValueObject\CurrencyName;
 final class Currency extends AggregateRoot
 {
     public function __construct(
-        private CurrencyId $id,
-        private CurrencyCode $currencyCode,
-        private CurrencyName $currencyName,
-        private CurrencyExchangeRate $currencyExchangeRate,
+        public readonly CurrencyId $id,
+        public readonly CurrencyCode $code,
+        public readonly CurrencyName $name,
+        public readonly CurrencyExchangeRate $exchangeRate,
     ) {
     }
 

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Src\Common\Infrastructure\Bus;
 
-use App\Shared\Infrastructure\InfrastructureException;
+use Src\Common\Infrastructure\InfrastructureException;
 use Throwable;
 
 final class CommandNotRegistered extends InfrastructureException
