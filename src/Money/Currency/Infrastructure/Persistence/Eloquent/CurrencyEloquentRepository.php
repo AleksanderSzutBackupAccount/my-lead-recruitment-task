@@ -7,6 +7,7 @@ namespace Src\Money\Currency\Infrastructure\Persistence\Eloquent;
 use Src\Money\Currency\Domain\Aggregate\Currency;
 use Src\Money\Currency\Domain\Exceptions\CurrencyNotFound;
 use Src\Money\Currency\Domain\Persistence\CurrencyRepository as CurrencyRepositoryInterface;
+use Src\Money\Currency\Domain\ValueObject\CurrencyCode;
 use Src\Money\Currency\Domain\ValueObject\CurrencyId;
 
 final readonly class CurrencyEloquentRepository implements CurrencyRepositoryInterface
@@ -32,9 +33,15 @@ final readonly class CurrencyEloquentRepository implements CurrencyRepositoryInt
     /**
      * @throws CurrencyNotFound
      */
-    public function findByCode(CurrencyId $id): Currency
+    public function findByCode(CurrencyCode $code): Currency
     {
-        throw new CurrencyNotFound();
+        $eloquentCurrency = $this->model->where('currency', $code->value());
+
+        if (null === $eloquentCurrency) {
+            throw new CurrencyNotFound();
+        }
+
+        return $this->toDomain($eloquentCurrency);
     }
 
     private function toDomain(
@@ -46,5 +53,16 @@ final readonly class CurrencyEloquentRepository implements CurrencyRepositoryInt
             $eloquentBoardModel->name,
             $eloquentBoardModel->exchange_rate,
         );
+    }
+
+    public function save(
+        Currency $currency
+    ): void {
+        try {
+            $currencyModel = $this->findByCode($currency->code);
+        } catch (CurrencyNotFound $e) {
+
+        }
+
     }
 }

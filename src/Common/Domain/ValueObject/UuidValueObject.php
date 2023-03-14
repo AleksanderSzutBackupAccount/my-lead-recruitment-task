@@ -8,9 +8,9 @@ use InvalidArgumentException;
 use Ramsey\Uuid\Uuid as RamseyUuid;
 use Src\Common\Domain\UuidGenerator;
 
-class UuidValueObject
+class UuidValueObject implements ValueObject
 {
-    public function __construct(protected readonly string $value)
+    final public function __construct(protected readonly string $value)
     {
         $this->assertIsValidUuid($value);
     }
@@ -36,12 +36,7 @@ class UuidValueObject
         return new static($value);
     }
 
-    public function equals(self $other): bool
-    {
-        return $this->value === $other->value;
-    }
-
-    public function __toString(): string
+    public function value(): string
     {
         return $this->value;
     }
