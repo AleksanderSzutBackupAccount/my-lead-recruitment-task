@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Src\Common\Domain\ValueObject;
 
-use InvalidArgumentException;
 use Ramsey\Uuid\Uuid as RamseyUuid;
+use Src\Common\Domain\Exceptions\ValueObject\UuidInvalidException;
 use Src\Common\Domain\UuidGenerator;
 
 class UuidValueObject implements ValueObject
@@ -18,11 +18,7 @@ class UuidValueObject implements ValueObject
     private function assertIsValidUuid(string $id): void
     {
         if (!RamseyUuid::isValid($id)) {
-            throw new InvalidArgumentException(sprintf(
-                '`<%s>` does not allow the value `<%s>`.',
-                static::class,
-                $id
-            ));
+            throw new UuidInvalidException($id);
         }
     }
 
