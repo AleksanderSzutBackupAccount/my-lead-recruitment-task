@@ -61,8 +61,6 @@ final readonly class CurrencyEloquentRepository implements CurrencyRepositoryInt
         try {
             $currencyModel = $this->findByCode($currency->code);
         } catch (CurrencyNotFound $e) {
-
         }
-
     }
 }

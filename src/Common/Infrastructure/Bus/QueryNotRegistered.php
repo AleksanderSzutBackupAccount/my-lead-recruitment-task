@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Src\Common\Infrastructure\Bus;
 
-
 use Src\Common\Infrastructure\InfrastructureException;
 
 final class QueryNotRegistered extends InfrastructureException

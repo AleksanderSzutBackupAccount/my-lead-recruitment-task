@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Src\Money\Currency\Application\Commands\Create;
 
-use App\Kanban\Board\Domain\Board;
 use Src\Common\Domain\Bus\Event\EventBus;
 use Src\Money\Currency\Domain\Aggregate\Currency;
 use Src\Money\Currency\Domain\Exceptions\CurrencyNotFound;
