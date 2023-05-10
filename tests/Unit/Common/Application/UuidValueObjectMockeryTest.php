@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tests\Unit\Domain\UuidValue;
+namespace Tests\Unit\Common\Application;
 
 use Mockery;
 use Mockery\Adapter\Phpunit\MockeryTestCase;

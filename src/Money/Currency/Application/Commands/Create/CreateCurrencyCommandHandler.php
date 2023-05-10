@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Src\Money\Currency\Application\Commands\Create;
 
 use Src\Common\Domain\Bus\Command\CommandHandler;
@@ -17,10 +19,10 @@ final readonly class CreateCurrencyCommandHandler implements CommandHandler
     public function __invoke(CreateCurrencyCommand $command): void
     {
         $this->creator->__invoke(
-            new CurrencyId($command->getId()),
-            new CurrencyCode($command->getCode()),
-            new CurrencyName($command->getName()),
-            new CurrencyExchangeRate($command->getExchangeRate())
+            new CurrencyId($command->id),
+            new CurrencyCode($command->code),
+            new CurrencyName($command->name),
+            new CurrencyExchangeRate($command->exchangeRate)
         );
     }
 }
